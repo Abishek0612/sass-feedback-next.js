@@ -1,0 +1,67 @@
+@import './globals.scss';
+
+.user-card {
+    background: $color-white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px; 
+    
+  .user-upvotes {
+    background: $color-light-grey; 
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: $color-dark-blue; 
+    margin-right: 20px; 
+  }
+
+
+  .user-content {
+
+
+    h1 {
+      color: $color-dark-blue; 
+      margin: 0 0 10px 0; 
+    }
+
+    p {
+      font-size: 16px; 
+      letter-spacing: 2px;
+      
+      
+      color: $color-midnight; 
+      margin: 0; 
+    }
+
+    h5 {
+      font-size: 14px;
+      color: $color-blue; 
+      background:  #F2F4FF      ; 
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px; 
+      margin-top: 10px; 
+    }
+  }
+
+  .user-comment {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+
+  
+
+    span {
+      font-size: 16px; 
+      color: $color-dark-blue; 
+    }
+  }
+}

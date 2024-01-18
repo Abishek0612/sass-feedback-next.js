@@ -1,0 +1,259 @@
+@import "./globals.scss";
+
+.feedback-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: auto;
+
+  .card {
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+
+    &.card-one {
+      background-image: url("/assets/suggestions/desktop/background-header.png");
+      background-size: cover;
+      background-position: center;
+      color: $color-white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    &.card-two,
+    &.card-three {
+      padding: 20px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      cursor: pointer;
+      flex-wrap: wrap;
+
+      .badge {
+        background-color: #4661e6;
+        padding: 15px 20px;
+      }
+
+      .category {
+        border-radius: 8px;
+        border: none;
+        background-color: #f2f4ff;
+        color: #4661e6;
+      }
+    }
+  }
+
+  @include respond-to("tablet") {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+
+    .card {
+      flex-basis: calc(50% - 10px);
+      max-width: calc(50% - 10px);
+
+      &.card-one {
+        flex-basis: 100%;
+        max-width: 100%;
+        order: 1;
+      }
+
+      &.card-two,
+      &.card-three {
+        order: 2;
+      }
+    }
+  }
+
+  @include respond-to("desktop") {
+    max-width: 1200px;
+  }
+}
+
+$color-purple: #ad1fea;
+$color-blue: #4661e6;
+$color-dark-blue: #3a4374;
+$color-midnight: #647196;
+$color-light-blue: #62bcfa;
+$color-white: #ffffff;
+$color-off-white: #f2f4ff;
+$color-light-grey: #f7f8fd;
+$color-coral: #f49f85;
+$color-nav: #373f68;
+$color-add-button: #c75af6;
+
+$font-family: "Jost";
+
+h1 {
+  font-family: $font-family;
+  font-size: 24px;
+  line-height: 35px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h2 {
+  font-family: $font-family;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h3 {
+  font-family: $font-family;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h4 {
+  font-family: $font-family;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+body,
+.body-text {
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.body-small {
+  font-family: $font-family;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+// Button Styles
+.button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: $font-family;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &.primary {
+    background-color: $color-purple;
+    color: $color-white;
+
+    &:hover {
+      background-color: darken($color-purple, 10%);
+    }
+
+    &:active {
+      background-color: darken($color-purple, 15%);
+    }
+  }
+
+  &.secondary {
+    background-color: $color-blue;
+
+    color: $color-white;
+  }
+
+  &:hover {
+    background-color: darken($color-blue, 10%);
+  }
+
+  &:active {
+    background-color: darken($color-blue, 15%);
+  }
+
+  &:hover {
+    background-color: darken($color-dark-blue, 10%);
+  }
+
+  &:active {
+    background-color: darken($color-dark-blue, 15%);
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  border-radius: 10px;
+  background-color: $color-blue;
+  color: $color-white;
+}
+
+.input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid $color-midnight;
+  font-family: $font-family;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $color-midnight;
+
+  &.error {
+    border-color: red;
+  }
+
+  &:focus {
+    border-color: $color-blue;
+    outline: none;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@mixin respond-to($media) {
+  @if $media == "phone" {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $media == "tablet" {
+    @media (min-width: 601px) and (max-width: 900px) {
+      @content;
+    }
+  } @else if $media == "desktop" {
+    @media (min-width: 901px) {
+      @content;
+    }
+  }
+}
+
+.element {
+  font-size: 16px;
+
+  @include respond-to("tablet") {
+    font-size: 14px;
+  }
+
+  @include respond-to("desktop") {
+    font-size: 12px;
+  }
+}

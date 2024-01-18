@@ -1,0 +1,59 @@
+@import './globals.scss';
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+
+  width: 100%;
+  background-color: $color-nav; 
+  order: 2; 
+
+  .nav-left {
+    display: flex;
+    gap: 200px; 
+
+    h2 {
+      font-size: 18px; 
+      color: $color-white;
+    }
+
+    h4 {
+      font-size: 16px; 
+      color: $color-white;
+    }
+
+  }
+
+  .nav-right {
+    button.add-button {
+      background-color: $color-purple; 
+      color: $color-white; 
+      border: none;
+      border-radius: 10px; 
+      padding: 10px 60px; 
+      font-size: 16px; 
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 8px; 
+
+      &:hover {
+        background-color: darken($color-purple, 10%); 
+      }
+
+    }
+    }
+
+  @include respond-to('tablet') {
+    width: 100%;
+    order: 1;
+  }
+
+  @include respond-to('desktop') {
+    flex: 2;
+    order: 2; 
+  }
+}
